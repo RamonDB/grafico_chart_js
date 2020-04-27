@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<meta charset="utf-8" />
+
+<style type="text/css">
+
+.container{
+    max-width: 1250px;
+    margin: 0 auto;
+    position: relative;
+    top: 100px;
+}
+
+.chart{
+    margin: 0 auto;
+}
+
+</style>
+<head>
+	<title>Chart js </title> <!-- https://www.chartjs.org/ -->
+</head>
+<body>
+    <div class="container">
+    <div class="chart" style="width: 70%;">
+     <canvas id="myChart"></canvas>
+    </div><!--container-->
+    </div>
+</body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line', //tipo do gáfico, fácil de alterar aqui
+    data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3], //valores que podem ser armazenados nas "labels"
+            backgroundColor: [ // cor do background
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [ //cor da barra
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1,
+            fill:false //NÃO DEIXAR O FUNDO PREENCHIDO (ABAIXO DA LINHA)
+        }]
+
+        
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+</body>
+
+</html>
